@@ -1,18 +1,19 @@
-import s from "./ContactList.module.css";
-import PropTypes from "prop-types";
+import s from './ContactList.module.css'
+import PropTypes from 'prop-types'
 
-import { useSelector, useDispatch } from "react-redux";
-import { allFilteredContacts } from "../../redux/contacts/selector";
-import operations from "../../redux/contacts/operations";
-import { useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux'
+import { allFilteredContacts } from '../../redux/contacts/selector'
+import operations from '../../redux/contacts/operations'
+import { useEffect } from 'react'
 
+// контакты удаление
 const ContactList = () => {
-  const getContacts = useSelector(allFilteredContacts);
-  const dispatch = useDispatch();
+  const getContacts = useSelector(allFilteredContacts)
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(operations.fetchContacts());
-  }, [dispatch]);
+    dispatch(operations.fetchContacts())
+  }, [dispatch])
 
   return (
     <div className={s.listWrapper}>
@@ -30,12 +31,12 @@ const ContactList = () => {
                 Delete
               </button>
             </li>
-          );
+          )
         })}
       </ul>
     </div>
-  );
-};
+  )
+}
 
 ContactList.propTypes = {
   getContacts: PropTypes.arrayOf(
@@ -43,8 +44,8 @@ ContactList.propTypes = {
       name: PropTypes.string,
       number: PropTypes.string,
       id: PropTypes.string,
-    })
+    }),
   ),
-};
+}
 
-export default ContactList;
+export default ContactList
